@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Monochrome black & white theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+
+    --primary: 0 0% 10%;
+    /* near-black */
+    --primary-foreground: 0 0% 98%;
+    /* white text on primary */
+    --accent: 0 0% 30%;
+    /* dark gray accent */
+    --accent-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 92%;
+    /* light gray surfaces */
+    --secondary-foreground: 0 0% 12%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 40%;
+
+    --destructive: 0 0% 20%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 20%;
+
+    /* grayscale chart ramp */
+    --chart-1: 0 0% 15%;
+    --chart-2: 0 0% 35%;
+    --chart-3: 0 0% 50%;
+    --chart-4: 0 0% 65%;
+    --chart-5: 0 0% 80%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    /* white */
+    --primary-foreground: 0 0% 10%;
+    --accent: 0 0% 75%;
+    /* light gray accent */
+    --accent-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --destructive: 0 0% 80%;
+    --destructive-foreground: 0 0% 10%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 80%;
+
+    --chart-1: 0 0% 90%;
+    --chart-2: 0 0% 75%;
+    --chart-3: 0 0% 60%;
+    --chart-4: 0 0% 45%;
+    --chart-5: 0 0% 30%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes shine {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shine {
+  animation: shine 2s infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 0, 0 0, 0% 50%;
+  }
+
+  50% {
+    background-position: 0 0, 0 0, 100% 50%;
+  }
+
+  100% {
+    background-position: 0 0, 0 0, 0% 50%;
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes sparkle {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  50% {
+    opacity: 0.2;
+    transform: translateY(100%);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 3s linear infinite;
+}
+
+.delay-75 {
+  animation-delay: 0.75s;
+}
+
+.delay-150 {
+  animation-delay: 1.5s;
+}
+
+.delay-300 {
+  animation-delay: 3s;
+}
