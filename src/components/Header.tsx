@@ -6,7 +6,7 @@ import { Menu, X, Heart, Sun, Moon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useTheme } from "next-themes"
 
-export function Header() {
+export function Header({ actions }: { actions?: React.ReactNode } = {}) {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
 
@@ -90,6 +90,8 @@ export function Header() {
                         ))}
                     </nav> */}
 
+                    <div className="flex items-center gap-2">
+                    {actions}
                     <div className="hidden md:flex items-center space-x-3">
                         {/* theme toggle - only interactive after mount to avoid hydration issues */}
                         <button
@@ -126,6 +128,7 @@ export function Header() {
                             />
                         </div>
                     </button>
+                    </div>
                 </div>
 
                 <div

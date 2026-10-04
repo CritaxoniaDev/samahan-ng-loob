@@ -14,6 +14,7 @@ import { NoteCard } from './NoteCard';
 import { Composer, type Draft } from './Composer';
 import { NoteDetail } from './NoteDetail';
 import { HalloweenTeaser } from './HalloweenTeaser';
+import { ViewSwitcher } from '@/components/ViewSwitcher';
 
 // Screen = world * z + (x, y)
 interface Camera {
@@ -590,14 +591,17 @@ export function Whiteboard() {
           )}
         </AnimatePresence>
 
-        {/* theme */}
-        <button
-          aria-label="Toggle theme"
-          onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-          className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full border border-border/60 bg-background/75 shadow-sm backdrop-blur-md transition-colors hover:bg-muted sm:right-6 sm:top-5"
-        >
-          {mounted && (resolvedTheme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />)}
-        </button>
+        {/* layout + theme */}
+        <div className="absolute right-4 top-4 flex items-center gap-2 sm:right-6 sm:top-5">
+          <ViewSwitcher />
+          <button
+            aria-label="Toggle theme"
+            onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+            className="grid h-11 w-11 place-items-center rounded-full border border-border/60 bg-background/75 shadow-sm backdrop-blur-md transition-colors hover:bg-muted"
+          >
+            {mounted && (resolvedTheme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />)}
+          </button>
+        </div>
 
         {/* first-visit hint */}
         <AnimatePresence>
